@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sika-noppapeli</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Sika-noppapeli</h1>
+        <p>Heitä noppaa, kerää pisteitä, mutta muista, seuraavalla heitolla voit menettää kaiken!</p>
+    </header>
+
+    <main class="game-container">
+
+        <section class="panel setup-panel">
+            <h2>Pelin asetukset</h2>
+
+            <div class="form-group">
+                <label for="player-count">Pelaajien määrä</label>
+                <select id="player-count">
+                    <option value="2">2 Pelaajaa</option>
+                    <option value="3">3 Pelaajaa</option>
+                    <option value="4">4 Pelaajaa</option>
+                    <option value="5">5 Pelaajaa</option>
+                    <option value="6">6 Pelaajaa</option>
+                </select>
+            </div>
+
+            <div id="player-names" class="player-names">
+                <div class="form-group">
+                    <label for="player-1">Pelaaja 1</label>
+                    <input type="text" id="player-1"
+                           placeholder="Pelaajan 1 nimi">
+                </div>
+
+                <div class="form-group">
+                    <label for="player-2">Pelaaja 2</label>
+                    <input type="text" id="player-2"
+                           placeholder="Pelaajan 2 nimi">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dice-mode">Pelimuoto</label>
+                <select id="dice-mode">
+                    <option value="1">Yksi noppa</option>
+                    <option value="2">Kaksi noppaa</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="winning-score">Voittoraja</label>
+                <input type="number" id="winning-score"
+                       min="10" value="100">
+            </div>
+
+            <button id="start-game"
+                    class="button button-primary">
+                Aloita peli
+            </button>
+        </section>
+
+        <section class="panel game-panel">
+            <h2>Peli käynnissä</h2>
+
+            <p id="game-status" aria-live="polite">
+                Aseta Pelurit ja aloita peli.
+            </p>
+
+            <div class="dice-area">
+                <div class="die" id="die-1">⚀</div>
+                <div class="die" id="die-2">⚀</div>
+            </div>
+
+            <div class="score-summary">
+                <div class="score-card">
+                    <span>Vuoron pisteet</span>
+                    <strong id="turn-score">0</strong>
+                </div>
+
+                <div class="score-card">
+                    <span>Voittoraja</span>
+                    <strong id="target-score">100</strong>
+                </div>
+            </div>
+
+            <div class="game-buttons">
+                <button id="roll-dice"
+                        class="button button-primary" disabled>
+                    Heitä noppaa
+                </button>
+
+                <button id="hold-score"
+                        class="button button-secondary" disabled>
+                    Lopeta vuoro
+                </button>
+
+                <button id="new-game"
+                        class="button button-outline">
+                    Uusi peli
+                </button>
+            </div>
+
+        </section>
+
+        <section class="panel scoreboard-panel">
+            <h2>Pistetilanne</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Peluri</th>
+                            <th>Kokonaispisteet</th>
+                            <th>Vuoro</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="scoreboard">
+                        <tr>
+                            <td colspan="3" class="empty-state">
+                                Pisteet näkyvät tässä, kun peli alkaa.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>Sikanoppapeli</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
